@@ -1,0 +1,348 @@
+@mixin flexCenter ($justify) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Gotham-Regular;
+    src: url(../fonts/Gotham-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Gotham-Bold;
+    src: url(../fonts/Gotham-Bold.otf);
+}
+
+@font-face {
+    font-family: Gotham-Italic;
+    src: url(../fonts/Gotham-Italic.otf);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Gotham, sans-serif;
+    line-height: 1.5;
+    min-width: 320px;
+}
+
+h1 {
+    font-family: Gotham-Bold, sans-serif;
+    font-size: 60px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/************** Header **************/
+
+.header {
+    height: 80px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    span {
+        font-size: 25px;
+        display: none;
+    }
+}
+
+.header__logo {
+    @include flexCenter (center);
+}
+
+.header__container {
+    @include flexCenter (space-around);
+    flex-direction: row;
+}
+
+.header__menu {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    div {
+        width: 150px;
+        text-align: center;
+    }
+    a {
+        color: #fff;
+    }
+}
+
+/************** About Us **************/
+
+.about-us {
+    height: 100%;
+    padding-top: 80px;
+    p {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+.about-us__title {
+    margin-bottom: 20px;
+    @include flexCenter (center);
+}
+
+.about-us__card-founded, .about-us__card-factory {
+    @include flexCenter (center);
+}
+
+.about-us__cards {
+    margin-bottom: 20px;
+}
+
+.about-us__small-title {
+    font-family: Gotham-Bold, sans-serif;
+    margin-bottom: 20px;
+    font-size: 20px;
+    display: block;
+}
+
+.about-us__image-factory {
+    background: url('../img/Tesla-Factory.jpg') no-repeat center;
+    background-size: cover;
+    height: 350px;
+    max-width: 450px;
+    width: 100%;
+}
+
+.about-us__image-founded {
+    background: url('../img/im-182667.jpeg') no-repeat center;
+    background-size: cover;
+    height: 350px;
+    max-width: 450px;
+    width: 100%;
+}
+
+.about-us__text {
+    max-width: 550px;
+    width: 100%;
+}
+
+.about-us__card-founded {
+    margin-bottom: 20px;
+    .about-us__text {
+        margin-left: 20px;
+    }
+}
+
+.about-us__card-factory {
+    .about-us__text {
+        margin-right: 20px;
+    }
+}
+
+/************** Gallery **************/
+
+.gallery {
+    background: #fafafa;
+}
+
+.gallery__container {
+    @include flexCenter (center);
+    flex-direction: column;
+}
+
+.gallery__title {
+    margin-bottom: 20px;
+}
+
+.gallery__images-carousel {
+    @include flexCenter (center);
+    margin-bottom: 20px;
+}
+
+.gallery__card {
+    margin-right: 20px;
+}
+
+.gallery__image img {
+    width: 350px;
+}
+
+.gallery__image:hover {
+    transform: scale(1.2);
+}
+
+.gallery__small-text {
+    text-align: center;
+    font-size: 10px;
+    font-family: Gotham-Italic, sans-serif;
+}
+
+.gallery__other-links {
+    @include flexCenter (center);
+    a {
+        margin-right: 20px;
+        text-decoration: underline;
+        text-align: center;
+    }
+}
+
+/************** Contacts **************/
+
+.contacts {
+    height: 100%;
+    margin-bottom: 50px;
+}
+
+.contacts__title {
+    @include flexCenter (center);
+    margin-bottom: 20px;
+}
+
+.contacts__intro-text {
+    @include flexCenter (center);
+    flex-direction: column;
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+.contacts__iframe {
+    margin-bottom: 20px;
+}
+
+.contacts__iframe iframe {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.contacts__links {
+    font-size: 15px;
+    @include flexCenter (center);
+    a {
+        color: #000;
+        margin-right: 20px;
+    }
+}
+
+/************** Footer **************/
+
+.footer {
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #000;
+    color: #fff;
+}
+
+.footer__container {
+    @include flexCenter (center);
+}
+
+#buttonTop {
+    display: none;
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    z-index: 999;
+    background: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+#closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    display: none;
+    font-size: 60px;
+    z-index: 2;
+    color: #fff;
+}
+
+/************** Responsive mobile **************/
+
+@media screen and (max-width: 1150px) {
+    .gallery__images-carousel {
+        flex-wrap: wrap;
+    }
+    .gallery__card {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .about-us__card-founded {
+        flex-direction: column;
+    }
+    .about-us__card-factory {
+        flex-direction: column-reverse;
+    }
+    .about-us__image-founded, .about-us__image-factory {
+        margin-bottom: 20px;
+    }
+    .about-us__card-factory, .about-us__card-founded {
+        .about-us__text {
+            margin: 0;
+        }
+    }
+    .header {
+        span {
+            display: block;
+        }
+    }
+    .header__menu {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        overflow-x: hidden;
+        transition: 0.5s;
+        background: rgba(0,0,0, 0.8);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        div {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .contacts__links {
+        flex-direction: column;
+        div {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+    h1 {
+        font-size: 40px;
+    }
+    .gallery__image img {
+        width: 300px;
+    }
+}
